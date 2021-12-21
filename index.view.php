@@ -15,13 +15,17 @@
     <p><?php var_dump($content) ?></p>
     <p><?= $content["completed"] ? "done\n" : "to do\n" ?></p>
     <p><?= $content["completed"] ? "done" : "to do" ?></p>
-    <p><?php
-        if ($content["completed"]) {
-            echo "icon";
-        } else {
-            echo "diff_icon";
-        };
-        ?></p>
+    <ul>
+        <?php foreach ($tasks as $task) : ?>
+            <li>
+                <?php if ($task->completed) : ?>
+                    <strikethrough><?= $task->description ?></strikethrough>
+                <?php else : ?>
+                    <?= $task->description ?>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 
 

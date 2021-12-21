@@ -1,24 +1,35 @@
 <?php
 
-require "functions.php";
+class Task
+{
+    public $description;
+    public $completed = false;
 
-$content = [
-    'title' => "Here's the title",
-    'due' => "today",
-    "assigned to" => "me",
-    "completed" => false
+    public function __construct($description)
+    {
+        $this->description = $description;
+    }
+
+    public function isComplete()
+    {
+        return $this->completed;
+    }
+
+    public function complete()
+    {
+        $this->completed = true;
+    }
+};
+
+$my_task = new Task("go to the shop");
+
+$tasks = [
+    new Task("sdg"),
+    new Task("2dsgfj"),
+    new Task("dfgjsdj"),
 ];
 
-function checkAge($age)
-{
-    echo $age > 20 ? "Come in" : "nope";
-}
-
-checkAge(20);
-checkAge(21);
-
-$animals = ["dog", "cat", "mouse"];
-
-dd($animals);
+// dd($my_task->isComplete());
+$tasks[0]->complete();
 
 require "index.view.php";
