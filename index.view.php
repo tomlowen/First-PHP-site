@@ -9,12 +9,6 @@
 </head>
 
 <body>
-    <h1>
-        <?= $content["title\n"]; ?>
-    </h1>
-    <p><?php var_dump($content) ?></p>
-    <p><?= $content["completed"] ? "done\n" : "to do\n" ?></p>
-    <p><?= $content["completed"] ? "done" : "to do" ?></p>
     <ul>
         <?php foreach ($tasks as $task) : ?>
             <li>
